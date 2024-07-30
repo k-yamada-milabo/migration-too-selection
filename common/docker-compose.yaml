@@ -12,4 +12,4 @@ services:
       POSTGRES_PASSWORD: passwd
       POSTGRES_DB: tool 
 volumes:
-  miid_pgdata:
+  tool_pgdata:
