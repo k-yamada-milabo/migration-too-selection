@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres:15
+    container_name: tool-db
+    ports:
+      - 55432:5432
+    volumes:
+      - tool_pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: tool 
+volumes:
+  miid_pgdata:
