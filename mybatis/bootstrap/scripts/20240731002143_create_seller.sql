@@ -1,0 +1,12 @@
+-- // First migration.
+-- Migration SQL that makes the change goes here.
+create table SELLER (
+    ID int not null,
+    NAME varchar(1000) not null
+);
+
+
+-- //@UNDO
+-- SQL to undo the change goes here.
+
+
