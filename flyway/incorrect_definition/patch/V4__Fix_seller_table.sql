@@ -1,0 +1,2 @@
+ALTER TABLE seller
+ALTER COLUMN name TYPE varchar(1000);
