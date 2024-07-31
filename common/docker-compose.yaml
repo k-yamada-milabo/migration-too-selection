@@ -10,6 +10,19 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: passwd
-      POSTGRES_DB: tool 
+      POSTGRES_DB: tool
+
+  reference_db:
+    image: postgres:15
+    container_name: reference-db
+    ports:
+      - 65432:5432
+    volumes:
+      - reference_pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: tool
 volumes:
   tool_pgdata:
+  reference_pgdata:
