@@ -1,5 +1,5 @@
 create table PRODUCT (
     ID int not null,
-    NAME varchar(1000) not null,
+    NAME varchar(500) not null,
     CURRENT_PRICE int not null
 )
