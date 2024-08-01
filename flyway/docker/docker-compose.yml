@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: postgres:15
+    container_name: migration-flyway-db
+    ports:
+      - 45433:5432
+    volumes:
+      - migration_flyway_pgdata:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: tool
+
+volumes:
+  migration_flyway_pgdata:
