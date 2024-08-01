@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    build: .
+    container_name: migration-mybatis-db
+    ports:
+      - 45432:5432
+    volumes:
+      - migration_mybatis_pgdata:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    environment:
+      MIGRATIONS_DRIVER: org.postgresql.Driver
+      MIGRATIONS_URL: jdbc:postgresql://db:5432/tool
+      MIGRATIONS_USER: postgres
+      MIGRATIONS_PASSWORD: passwd
+      MIGRATIONS_SCRIPT_PATH: /docker-entrypoint-initdb.d/scripts
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: tool
+    entrypoint: ["/docker-entrypoint-initdb.d/cmd.sh"]
+volumes:
+  migration_mybatis_pgdata:
